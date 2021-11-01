@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "f328e1e1-8129-460c-aaba-8c18ab81ad75",
+		"name": "keycloak - securityapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticate - backend",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "client_id",
+						"value": "web-app",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "client_secret",
+						"value": "a612ac6b-7e12-40ab-bf52-5851ef424060",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "grant_type",
+						"value": "client_credentials",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "web-app",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "a612ac6b-7e12-40ab-bf52-5851ef424060",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/auth/realms/security-api/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"auth",
+						"realms",
+						"security-api",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Autenticar - frontend",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "web-app",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "a612ac6b-7e12-40ab-bf52-5851ef424060",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "user@user.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/auth/realms/security-api/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"auth",
+						"realms",
+						"security-api",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "endpoint",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJPQmE1R1ZFUndmUjdoRUVGdWotSjZPUmZIREdqVUlWM2FaUzIzd2dPMnZjIn0.eyJleHAiOjE2MzU3Mjg4NDQsImlhdCI6MTYzNTcyODU0NCwianRpIjoiN2M2MWU4ZjItZDRlZi00OTdjLWJmYmMtODQxM2JkNzYzZDFhIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDg0L2F1dGgvcmVhbG1zL3NlY3VyaXR5LWFwaSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI1MzdiNjZiNS01ZmY5LTQwMjctODQxZi02NjJkMjVjMDU5MTMiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ3ZWItYXBwIiwic2Vzc2lvbl9zdGF0ZSI6IjYyMmVhMWFkLWY0ODYtNDg0Mi1hYTMwLTNjNDI2ZjYwNDIyYyIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsInVzZXIiLCJkZWZhdWx0LXJvbGVzLXNlY3VyaXR5LWFwaSJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6IjYyMmVhMWFkLWY0ODYtNDg0Mi1hYTMwLTNjNDI2ZjYwNDIyYyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ1c2VyQHVzZXIuY29tIn0.WKFbsGiB6Y7RFjLfB8jKdf5QMRyM41zVys7v8BI0wasVdWPVxf7ZJGfq708JDfkDPsJ_nNxeFoIfKlcWAGHPHx27bFWQpsgW_7JsuqaEuWKPyR3jSTVYnwgCcufMca3p5uJzfWMFwFtu7eeWxwyrHaUjtfC2jiPTj5LAMMJPnvBPnPlos2Wf_H_skIn74qVcfBoohg45MOJITkIzGP3NAj-BZcd--T9T02tN1kScMZyfDRMxFU_zo625tstVAFvYXNCDzmXqomOpZIbmxVFV2C7V_GQoPCVIkEWo6hMugngUrIjB89n58EvtF50VU0GXmAVKEdwXYzEq-6gqIRHYJA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/security/has-role",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"security",
+						"has-role"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
