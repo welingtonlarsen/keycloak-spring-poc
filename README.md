@@ -12,7 +12,7 @@ This proof of concept was made to learn how to integrate Keycloak in an applicat
 
 ![](https://img.shields.io/badge/Autor-Welington%20Larsen-brightgreen)
 ![](https://img.shields.io/badge/Language-Java-brightgreen)
-![](https://img.shields.io/badge/Framework-React-brightgreen)
+![](https://img.shields.io/badge/Framework-Spring-brightgreen)
 
 </div>
 
